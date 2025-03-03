@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> Yogurt - Naturart </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Poppins:wght@200;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="estados/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <div class="alert-container" id="alertContainer">
+        <div class="alert" id="alert">
+            <span class="close-btn" onclick="closeAlert()">ⓧ</span>
+            <div class="alert-content">
+                <img id="storyImage" src="" alt="">
+                <p id="storyText"></p>
+            </div>
+            <div class="navigation">
+                <!-- <button class="fa-li fa fa-arrow-left" onclick="prevStory()"></button> -->
+
+                <button class="fa-li fa fa-arrow-right" onclick="nextStory()"></button>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <a href="index.html" class="navbar-brand">
+                    <h2 class="text-white"> Yogurt Naturart</h2>
+                </a>
+                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                        <a href="" class="nav-link">beneficios</a>
+                        <a href="#linea_pro" class="nav-item nav-link">Linea de yogurt</a>
+                        <a href="#linea_pro" class="nav-item nav-link">Articulos</a>
+                        <a href="" class="nav-item nav-link">Contacto</a> &nbsp&nbsp&nbsp&nbsp
+                        <a href="#" class="nav-link"> <button class="my-button">Registro</button> </a>
+                        <a href="#" class="nav-link" id="cart-icon" style="color: aliceblue;">
+                            <i class="fas fa-cart-plus fa-2x"></i>
+                            <span id="cart-count" class="badge bg-danger">0</span>
+                        </a>
+
+
+                    </div>
+
+                </div>
+            </nav>
+
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <div id="cart-dropdown" class="cart-dropdown">
+        <h3>Carrito de Compras</h3>
+        <ul id="cart-items"></ul>
+        <p>Total: <span id="cart-total">$0</span></p>
+        <button id="send-whatsapp" class="btn btn-success">Enviar a WhatsApp</button>
+    </div>
+
+    <a href="https://wa.me/573247779375?text=%22%C2%A1Hola!%20Estoy%20visitando%20la%20p%C3%A1gina%20de%20Naturart%20y%20me%20encantar%C3%ADa%20saber%20m%C3%A1s%20sobre%20sus%20yogures%20artesanales.%20%F0%9F%8D%B6%F0%9F%8C%BF%20%C2%BFPodr%C3%ADas%20contarme%20sobre%20los%20sabores%20disponibles%20y%20las%20opciones%20de%20pedidos?%20%C2%A1Gracias!%22"
+        class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+
+
+    <!-- Hero Start -->
+    <div class="container-fluid bg-primary hero-header mb-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 text-center text-lg-start">
+
+                    <h1 class="display-4 text-white animated slideInRight">100% Natural <span class="fw-light text-dark">Hecho en casa y </span> Sin conservantes </h1>
+                    <a href="" class="btn btn-dark py-2 px-4 me-3 animated slideInRight">Conocer</a>
+                    <a href="" class="btn btn-outline-dark py-2 px-4 animated slideInRight">Contactar</a>
+
+                    <p>
+                </div>
+                <div class="col-lg-6">
+                    <model-viewer src="img/natuart.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate style="width: 100%; height: 400px;">
+                        <button slot="ar-button" style="position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); padding: 12px 24px; font-size: 16px; background: #007bff; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                    📱 Ver en AR
+        </button>
+                    </model-viewer>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+
+    <!-- Feature Start -->
+
+
+
+    <section id="values" class="values">
+
+        <div class="container" data-aos="fade-up">
+
+            <header class="section-header">
+                <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="text-primary mb-3"><span class="fw-light text-dark"></span> ¿Por que elegirnos?
+                    </h1>
+                    <p class="mb-5"></p>
+                </div>
+            </header>
+
+            <div class="row">
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="box">
+                        <img src="assets/img/values-1.png" class="img-fluid" alt="">
+                        <h3>Producto Artesanal </h3>
+                        <p>Nuestro yogurt esta elaborado con materias primas e insumos 100% naturales, se encuentra libre de conservantes añadidos, colorantes artificiales y altos contenidos de azucares.
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
+                    <div class="box">
+                        <img src="assets/img/values-2.png" class="img-fluid" alt="">
+                        <h3>Nutrición </h3>
+                        <p>Es una alimento fuente en proteínas y calcio, que aporta grandes beneficios para tu salud, ayuda a mantener una correcta digestión, mantiene tus huesos fuertes y sanos, aporta la energía que tu organismo necesita manteniéndote
+                            mas activo.
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
+                    <div class="box">
+                        <img src="assets/img/values-3.png" class="img-fluid" alt="">
+                        <h3> Una Experiencia Inolvidable </h3>
+                        <p>Pensando en ti nuestro yogurt se elabora con materias primas e insumos previamente seleccionados garantizando un producto de la mas alta calidad nutricional.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- End Values Section -->
+
+
+
+    <!-- About End -->
+
+
+    <!-- Deal Start -->
+    <div class="container deal">
+
+
+        <div class="container py-5">
+            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="text-primary mb-3"><span class="fw-light text-dark"></span> ¿Conoce nuestro producto?
+                </h1>
+                <p class="mb-5"></p>
+            </div>
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <img id="productImage" class="img-fluid animated pulse infinite" src="img/port.png">
+                    <div class="dots-container text-center">
+                        <span style="background-color: #6cef4d " class="dot" onclick="changeImage(0)"></span>
+                        <span class="dot" onclick="changeImage(1)"></span>
+                        <span class="dot" onclick="changeImage(2)"></span>
+                        <span class="dot" onclick="changeImage(3)"></span>
+                        <span class="dot" onclick="changeImage(4)"></span>
+                        <span class="dot" onclick="changeImage(5)"></span>
+                        <span class="dot" onclick="changeImage(6)"></span>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="bg-white text-center p-4">
+                        <div class="border p-4">
+                            <h5></h5>
+                            <h1 class="display-4 text-primary mb-4">$17.500</h1>
+                            <h2 class="fw-bold text-uppercase mb-4">Sorpréndete con el sabor de Naturart</h2>
+                            <div class="row g-0 cdt mb-4">
+                                <div class="col-3">
+                                    <h1 class="display-6" id="cdt-days"></h1>
+                                </div>
+                                <div class="col-3">
+                                    <h1 class="display-6" id="cdt-hours"></h1>
+                                </div>
+                                <div class="col-3">
+                                    <h1 class="display-6" id="cdt-minutes"></h1>
+                                </div>
+                                <div class="col-3">
+                                    <h1 class="display-6" id="cdt-seconds"></h1>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CRUD Form -->
+
+
+    <!-- Deal End -->
+
+
+    <!-- Feature Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="text-primary mb-3"><span class="fw-light text-dark">Beneficios de</span> yogurt Natuart
+                </h1>
+                <p class="mb-5">¿Sabias que el yogurt contiene tantos beneficios para tu cuerpo?</p>
+            </div>
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="row g-5">
+                        <div class="col-12 d-flex">
+                            <div class="btn-square rounded-circle border flex-shrink-0" style="width: 80px; height: 80px;">
+                                <i class="fa fa-check fa-2x text-primary"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h5>Fuente de probióticos:</h5>
+                                <hr class="w-25 bg-primary my-2">
+                                <span> Contiene bacterias beneficiosas que mejoran la flora intestinal y la digestión</span>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex">
+                            <div class="btn-square rounded-circle border flex-shrink-0" style="width: 80px; height: 80px;">
+                                <i class="fa fa-check fa-2x text-primary"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h5>Favorece la salud digestiva:</h5>
+                                <hr class="w-25 bg-primary my-2">
+                                <span> Ayuda a prevenir problemas como el estreñimiento y la hinchazón.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex">
+                            <div class="btn-square rounded-circle border flex-shrink-0" style="width: 80px; height: 80px;">
+                                <i class="fa fa-check fa-2x text-primary"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h5>Fortalece el sistema inmunológico:</h5>
+                                <hr class="w-25 bg-primary my-2">
+                                <span> Sus probióticos y nutrientes ayudan a mejorar las defensas del cuerpo.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <img class="img-fluid animated pulse infinite" src="img/port.png">
+                </div>
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="row g-5">
+                        <div class="col-12 d-flex">
+                            <div class="btn-square rounded-circle border flex-shrink-0" style="width: 80px; height: 80px;">
+                                <i class="fa fa-check fa-2x text-primary"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h5>Rico en proteínas: </h5>
+                                <hr class="w-25 bg-primary my-2">
+                                <span> Aporta proteínas de alta calidad, esenciales para el desarrollo muscular y la reparación celular.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex">
+                            <div class="btn-square rounded-circle border flex-shrink-0" style="width: 80px; height: 80px;">
+                                <i class="fa fa-check fa-2x text-primary"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h5>Promueve la salud de la piel y el cabello:</h5>
+                                <hr class="w-25 bg-primary my-2">
+                                <span>   Sus nutrientes ayudan a mantener una pieles hidratada y un cabello fuerte.
+
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex">
+                            <div class="btn-square rounded-circle border flex-shrink-0" style="width: 80px; height: 80px;">
+                                <i class="fa fa-check fa-2x text-primary"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h5>Beneficia la salud cardiovascular:</h5>
+                                <hr class="w-25 bg-primary my-2">
+                                <span>  Su consumo regular está asociado con un menor riesgo de enfermedades del corazón.
+
+
+
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature End -->
+
+
+    <!-- How To Use Start -->
+    <div class="container5">
+        <div class="container text-white py-5">
+            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="text-primary mb-3"><span class="fw-light text-dark">Te contamos </span> sobre naturart
+                </h1>
+                <p class="mb-5"></p>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-4 text-center wow fadeIn" data-wow-delay="0.1s">
+                    <div class="btn-square rounded-circle border mx-auto mb-4" style="width: 120px; height: 120px;">
+                        <i class="fa fas fa-motorcycle fa-3x icon-dark"></i>
+                    </div>
+                    <h5 class="text-white2">Entrega domicilio</h5>
+                    <hr class="w-25 bg-light my-2 mx-auto">
+                    <span class="text-white2">Contamos con entrega a domicilio en Sogamoso, Boyacá sin costo adicional. </span>
+                </div>
+                <div class="col-lg-4 text-center wow fadeIn" data-wow-delay="0.3s">
+                    <div class="btn-square rounded-circle border mx-auto mb-4" style="width: 120px; height: 120px;">
+                        <i class="fa fas fas fa-heartbeat fa-3x icon-dark"></i>
+                    </div>
+                    <h5 class="text-white2">Linea Dietetica</h5>
+                    <hr class="w-25 bg-light my-2 mx-auto">
+                    <span class="text-white2">Pensando en la diversidad de gustos creamos una línea dietética - Producto sin endulzantes añadidos y lleno de mucho sabor 
+                    </span>
+                </div>
+                <div class="col-lg-4 text-center wow fadeIn" data-wow-delay="0.5s">
+                    <div class="btn-square rounded-circle border mx-auto mb-4" style="width: 120px; height: 120px;">
+                        <i class="fa fas fa-donate fa-3x icon-dark"></i>
+                    </div>
+                    <h5 class="text-white2">Ofertas para negocios.</h5>
+                    <hr class="w-25 bg-light my-2 mx-auto">
+                    <span class="text-white2">¿Tienes un negocio y quieres incluir nuestro producto? Escríbenos, tenemos ofertas especiales para ti, ventas al mayor y al detal.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- How To Use End -->
+
+
+    <!-- Product Start -->
+    <div class="container-fluid py-5">
+        <div class="container" id="linea_pro">
+            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="text-primary mb-3"><span class="fw-light text-dark">Nuestra línea</span> de naturart</h1>
+                <p class="mb-5">Hooa soy laura y vendo yogurt nutricional con dulce y sin dulce.</p>
+            </div>
+            <div class="position-relative">
+
+
+
+                <div class="product-container">
+                    <div class="product-item-wrapper">
+
+                        <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                            <div class="product-item text-center border h-100 p-4">
+                                <img class="img-fluid mb-4" src="img/3.png" alt="">
+
+                                <a href="" class="h6 d-inline-block mb-2">Melocoton</a>
+                                <h5 class="text-primary mb-3">$17.500</h5>
+                                <a href="" class="btn btn-outline"><i class="fas fa-search"></i></a>
+                                <a class="btn btn-outline add-to-cart" data-name="Melocoton" data-price="17500" style="background-color: turquoise;"><i class="fas fa-shopping-cart"></i></a>
+                                <a href="" class="btn btn-outline" style="background-color:  #ef4d5a;"><i class="fas fa-heart"></i></a>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                            <div class="product-item text-center border h-100 p-4">
+                                <img class="img-fluid mb-4" src="img/2.png" alt="">
+
+                                <a href="" class="h6 d-inline-block mb-2">Mora</a>
+                                <h5 class="text-primary mb-3">$17.500</h5>
+
+                                <a href="" class="btn btn-outline"><i class="fas fa-search"></i></a>
+                                <a class="btn btn-outline add-to-cart" data-name="Mora" data-price="17500" style="background-color: turquoise;"><i class="fas fa-shopping-cart"></i></a>
+                                <a href="" class="btn btn-outline" style="background-color:  #ef4d5a;"><i class="fas fa-heart"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="product-item text-center border h-100 p-4">
+                                <img class="img-fluid mb-4" src="img/4.png" alt="">
+                                <a href="" class="h6 d-inline-block mb-2">Fresa</a>
+                                <h5 class="text-primary mb-3">$17.500</h5>
+                                <a href="" class="btn btn-outline"><i class="fas fa-search"></i></a>
+                                <a class="btn btn-outline add-to-cart" data-name="Fresa" data-price="17500" style="background-color: turquoise;"><i class="fas fa-shopping-cart"></i></a>
+                                <a href="" class="btn btn-outline" style="background-color:  #ef4d5a;"><i class="fas fa-heart"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                            <div class="product-item text-center border h-100 p-4">
+                                <img class="img-fluid mb-4" src="img/6.png" alt="">
+
+                                <a href="" class="h6 d-inline-block mb-2">Frutos rojos</a>
+                                <h5 class="text-primary mb-3">$17.500</h5>
+                                <a href="" class="btn btn-outline"><i class="fas fa-search"></i></a>
+                                <a class="btn btn-outline add-to-cart" data-name="Frutos Rojos" data-price="17500" style="background-color: turquoise;"><i class="fas fa-shopping-cart"></i></a>
+                                <a href="" class="btn btn-outline" style="background-color:  #ef4d5a;"><i class="fas fa-heart"></i></a>
+                            </div>
+                        </div>
+                         <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                            <div class="product-item text-center border h-100 p-4">
+                                <img class="img-fluid mb-4" src="img/6.png" alt="">
+
+                                <a href="" class="h6 d-inline-block mb-2">Frutos Amarillos</a>
+                                <h5 class="text-primary mb-3">$17.500</h5>
+                                <a href="" class="btn btn-outline"><i class="fas fa-search"></i></a>
+                                <a class="btn btn-outline add-to-cart" data-name="Frutos amarillos" data-price="17500" style="background-color: turquoise;"><i class="fas fa-shopping-cart"></i></a>
+                                <a href="" class="btn btn-outline" style="background-color:  #ef4d5a;"><i class="fas fa-heart"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                            <div class="product-item text-center border h-100 p-4">
+                                <img class="img-fluid mb-4" src="img/1.png" alt="">
+
+                                <a href="" class="h6 d-inline-block mb-2">Guanabana</a>
+                                <h5 class="text-primary mb-3">$17.500</h5>
+                                  <a href="" class="btn btn-outline"><i class="fas fa-search"></i></a>
+                                <a class="btn btn-outline add-to-cart" data-name="Guanabana" data-price="17500" style="background-color: turquoise;"><i class="fas fa-shopping-cart"></i></a>
+                                <a href="" class="btn btn-outline" style="background-color:  #ef4d5a;"><i class="fas fa-heart"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                            <div class="product-item text-center border h-100 p-4">
+                                <img class="img-fluid mb-4" src="img/5.png" alt="">
+
+                                <a href="" class="h6 d-inline-block mb-2">Piña</a>
+                                <h5 class="text-primary mb-3">$17.500</h5>
+                                <a href="" class="btn btn-outline"><i class="fas fa-search"></i></a>
+                                <a class="btn btn-outline add-to-cart" data-name="Piña" data-price="17500" style="background-color: turquoise;"><i class="fas fa-shopping-cart"></i></a>
+                                <a href="" class="btn btn-outline" style="background-color:  #ef4d5a;"><i class="fas fa-heart"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                            <div class="product-item text-center border h-100 p-4">
+                                <img class="img-fluid mb-4" src="img/1.png" alt="">
+
+                                <a href="" class="h6 d-inline-block mb-2">Freijoa</a>
+                                <h5 class="text-primary mb-3">$Agotado</h5>
+                                <a href="" class="btn btn-outline"><i class="fas fa-search"></i></a>
+                                <a href="" class="btn btn-outline" style="background-color: turquoise;"><i class="fas fa-shopping-cart"></i></a>
+                                <a href="" class="btn btn-outline" style="background-color:  #ef4d5a;"><i class="fas fa-heart"></i></a>
+                            </div>
+                        </div>
+                        <!-- Producto 2, 3, 4... (los demás productos van aquí con la misma estructura) -->
+                    </div>
+                </div>
+
+                <!-- Botón de la derecha -->
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Blog Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="text-primary mb-3"><span class="fw-light text-dark"> Articulos </span> Sobre el Yogurt</h1>
+                <p class="mb-5"></p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="blog-item border h-100 p-4">
+                        <img class="img-fluid mb-4" src="img/articulos/1.png" alt="">
+                        <a href="" class="h5 lh-base d-inline-block">Beneficios al consumo del Yogurt </a>
+                        <div class="d-flex text-black-50 mb-2">
+                            <div class="pe-3">
+                                <small class="fa fa-eye me-1"></small>
+                                <small>+118 Views</small>
+                            </div>
+                            <div class="pe-3">
+                                <small class="fa fa-comments me-1"></small>
+                                <small>54 comentarios</small>
+                            </div>
+                        </div>
+                        <p class="mb-4">Contienen múltiples vitaminas como Ca, P, Mg, Zn, I, K, vitamina A, vitamina D, vitaminas del complejo B, principalmente B2 (riboflavina), B3 (niacina) y B12 (cobalamina)</p>
+                        <a href="" class="btn btn-outline-primary px-3">Ver mas</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="blog-item border h-100 p-4">
+                        <img class="img-fluid mb-4" src="img/articulos/2.png" alt="">
+                        <a href="" class="h5 lh-base d-inline-block">¿Un indicador de la calidad de la dieta?</a>
+                        <div class="d-flex text-black-50 mb-2">
+                            <div class="pe-3">
+                                <small class="fa fa-eye me-1"></small>
+                                <small>+98 Views</small>
+                            </div>
+                            <div class="pe-3">
+                                <small class="fa fa-comments me-1"></small>
+                                <small>13 comentarios</small>
+                            </div>
+                        </div>
+                        <p class="mb-4">El aumento del consumo de yogur puede ayudar a mejorar la ingesta de algunas vitaminas y minerales deficitarios, como parte de una dieta energéticamente bien balanceada.</p>
+                        <a href="" class="btn btn-outline-primary px-3">Ver mas</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="blog-item border h-100 p-4">
+                        <img class="img-fluid mb-4" src="img/articulos/3.png" alt="">
+                        <a href="" class="h5 lh-base d-inline-block"> Personas con problemas para digerir la lactosa</a>
+                        <div class="d-flex text-black-50 mb-2">
+                            <div class="pe-3">
+                                <small class="fa fa-eye me-1"></small>
+                                <small>+232 Views</small>
+                            </div>
+                            <div class="pe-3">
+                                <small class="fa fa-comments me-1"></small>
+                                <small>154 comentarios</small>
+                            </div>
+                        </div>
+                        <p class="mb-4"> Un yogur contiene de media entre un 20-30% menos de lactosa, por lo que la mayoría de intolerantes, lo pueden metabolizar, sin problema alguno. ¿Qué aporta el yogur a nuestro organismo?</p>
+                        <a href="" class="btn btn-outline-primary px-3">Ver mas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+
+    <!-- 
+    <div class="container-fluid newsletter bg-primary py-5 my-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="text-white mb-3"><span class="fw-light text-dark">Let's Subscribe</span> The Newsletter</h1>
+                <p class="text-white mb-4">Subscribe now to get 30% discount on any of our products</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="position-relative w-100 mt-3 mb-2">
+                        <input class="form-control w-100 py-4 ps-4 pe-5" type="text" placeholder="Enter Your Email"
+                            style="height: 48px;">
+                        <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i
+                                class="fa fa-paper-plane text-white fs-4"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ -->
+
+
+    <!-- 
+    <div class="container-fluid bg-white footer">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <a href="index.html" class="d-inline-block mb-3">
+                        <h1 class="text-primary">Hairnic</h1>
+                    </a>
+                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, erat non malesuada consequat, nibh erat tempus risus, vitae porttitor purus nisl vitae purus.</p>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <h5 class="mb-4">Get In Touch</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-primary me-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-primary me-1" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square btn-outline-primary me-1" href=""><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                    <h5 class="mb-4">Our Products</h5>
+                    <a class="btn btn-link" href=""></a>
+                    <a class="btn btn-link" href=""></a>
+                    <a class="btn btn-link" href=""></a>
+                    <a class="btn btn-link" href=""></a>
+                    <a class="btn btn-link" href=""></a>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <h5 class="mb-4">Popular Link</h5>
+                    <a class="btn btn-link" href=""></a>
+                    <a class="btn btn-link" href=""></a>
+                    <a class="btn btn-link" href=""></a>
+                    <a class="btn btn-link" href=""></a>
+                    <a class="btn btn-link" href=""></a>
+                </div>
+            </div>
+        </div>
+
+ -->
+    <div class="container wow fadeIn" data-wow-delay="0.1s">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" href="www.kreaftware.com"> Kreaftware Innovative</a>, All Right Reserved.
+
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    Designed By
+                    <a class="border-bottom" href="https://htmlcodex.com"></a> Distributed by <a href="https://themewagon.com">Naturart</a>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-menu">
+                        <a href="">Home</a>
+                        <a href="">Cookies</a>
+                        <a href="">Help</a>
+                        <a href="">FAQs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="estados/scrip.js"></script>
+</body>
+
+</html>
